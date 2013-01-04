@@ -30,4 +30,4 @@ module.exports = (robot) ->
         cache.shift() until cache.length is 0 or cache[0].expires >= now
       if cache.length == 0 or (item for item in cache when item.issue is issue).length == 0
         cache.push({issue: issue, expires: now + 120000})
-        msg.send "[" + i + "] " + ' looks a lot like a JIRA ticket id, but nobody told me how to access them yet :('
+        msg.send "[" + i + "] " + ' looks a lot like a JIRA ticket id, but nobody has taught me how to access them :('
