@@ -1,0 +1,1 @@
+forever start --minUptime 5000 --spinSleepTime 5000 ./node_modules/coffee-script/bin/coffee ./cinchbot.coffee -a skype
