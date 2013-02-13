@@ -8,7 +8,7 @@
 #   hubot <someone> tells you <text> - Generates a personal meme <text> (use a comma to separate top and bottom captions)
 #
 # Author:
-#   bobanj
+#   benjamine
 
 module.exports = (robot) ->
 
