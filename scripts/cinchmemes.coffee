@@ -23,6 +23,7 @@ module.exports = (robot) ->
   addPersonalMeme 'zach', 'http://www.blogtalkradio.com/pics/hostpics/34891341-4632-41d4-8e99-aefbca4d8bccsillyzach.jpg'
   addPersonalMeme 'danny', 'http://a0.twimg.com/profile_images/1188090493/danny_statue_profile.jpg'
   addPersonalMeme 'dustin', 'https://secure.gravatar.com/avatar/15912c1b3395cb8a454e287a88a97346?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png'
+  addPersonalMeme 'enrique', 'http://file.worldcybergames.com/file/GENIUS2004/member_pictures/2005/10/paletta.jpg'
 
 memeGenerator = (msg, imageName, text1, text2, callback) ->
   if imageName.slice(0,4).toLowerCase() == "http"
