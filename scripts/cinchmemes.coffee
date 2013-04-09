@@ -26,7 +26,7 @@ module.exports = (robot) ->
   addPersonalMeme 'enrique', 'http://file.worldcybergames.com/file/GENIUS2004/member_pictures/2005/10/paletta.jpg'
 
 memeGenerator = (msg, imageName, text1, text2, callback) ->
-  imageUrl = "http://memecaptain.com/" + imageName
+  imageUrl = imageName
 
   processResult = (err, res, body) ->
     return msg.send err if err
@@ -45,7 +45,7 @@ memeGenerator = (msg, imageName, text1, text2, callback) ->
     else
       msg.reply "Sorry, I couldn't generate that meme."
 
-  msg.http("http://memecaptain.com/g")
+  msg.http("http://v1.memecaptain.com/g")
   .query(
     u: imageUrl,
     t1: text1,
