@@ -26,19 +26,28 @@ module.exports = (robot) ->
   addPersonalMeme 'enrique', 'http://file.worldcybergames.com/file/GENIUS2004/member_pictures/2005/10/paletta.jpg'
 
 memeGenerator = (msg, imageName, text1, text2, callback) ->
-  if imageName.slice(0,4).toLowerCase() == "http"
-    imageUrl = imageName
-  else    
-    imageUrl = "http://memecaptain.com/" + imageName
-  msg.http("http://memecaptain.com/g")
-  .query(
-    u: imageUrl,
-    t1: text1,
-    t2: text2
-  ).get() (err, res, body) ->
+  imageUrl = imageName
+
+  processResult = (err, res, body) ->
     return msg.send err if err
-    result = JSON.parse(body)
+    if res.statusCode == 301      
+      msg.http(res.headers.location).get() processResult
+      return
+    if res.statusCode > 300
+      msg.reply "Sorry, I couldn't generate that meme. Unexpected Response Status: #{res.statusCode}"
+      return
+    try
+      result = JSON.parse(body)
+    catch error
+      msg.reply "Sorry, I couldn't generate that meme. Unexpected Response: #{body}"
     if result? and result['imageUrl']?
       callback result['imageUrl']
     else
       msg.reply "Sorry, I couldn't generate that meme."
+
+  msg.http("http://v1.memecaptain.com/g")
+  .query(
+    u: imageUrl,
+    t1: text1,
+    t2: text2
+  ).get() processResult
