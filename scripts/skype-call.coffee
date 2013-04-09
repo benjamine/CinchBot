@@ -6,7 +6,7 @@
 #   None
 #
 # Commands:
-#   hubot call - call people on current room
+#   hubot call us - call people on current room
 #   hubot answer - If a call is ringing, answers the call
 #   hubot hangup - hang up current call
 #   hubot play <filename>.wav - play a wav file on current call
@@ -26,7 +26,7 @@ module.exports = (robot) ->
   if audioFolder
     audioFolder = path.resolve(audioFolder)
 
-  robot.respond /call/i, (msg) ->
+  robot.respond /call us/i, (msg) ->
     msg.send '[call-start]'
 
   robot.respond /answer call/i, (msg) ->
