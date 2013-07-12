@@ -41,27 +41,27 @@ module.exports = (robot) ->
                     else
                         msg.send "my source code is up-to-date"
                 try
-                    msg.send "npm update..."
-                    child_process.exec 'npm update', (error, stdout, stderr) ->
+                    msg.send "npm install..."
+                    child_process.exec 'npm install', (error, stdout, stderr) ->
                         if error
-                            msg.send "npm update failed: " + stderr
+                            msg.send "npm install failed: " + stderr
                         else
                             output = stdout+''
                             if /node_modules/.test output
-                                msg.send "some dependencies updated:\n" + output
+                                msg.send "some dependencies installed:\n" + output
                                 changes = true
                             else
                                 msg.send "all dependencies are up-to-date"
                         if changes
                             downloaded_updates = true
-                            msg.send "I downloaded some updates, KILL ME PLEASE! (hint: hubot die)"
+                            msg.send "I downloaded some dependencies, KILL ME PLEASE! (hint: hubot die)"
                         else
                             if downloaded_updates
                                 msg.send "I have some pending updates, KILL ME PLEASE! (hint: hubot die)"
                             else
                                 msg.send "I'm up-to-date!"
                 catch error
-                    msg.send "npm update failed: " + error
+                    msg.send "npm install failed: " + error
         catch error
             msg.send "git pull failed: " + error
 
