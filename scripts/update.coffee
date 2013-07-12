@@ -1,5 +1,5 @@
 # Description:
-#   Allows hubot to update itself using git pull and npm update.
+#   Allows hubot to update itself using git pull and npm install.
 #   If updates are downloaded you'll need to restart hubot, for example using "hubot die" (restart using a watcher like forever.js).
 #
 # Dependencies:
@@ -9,7 +9,7 @@
 #   None
 #
 # Commands:
-#   hubot update - Performs a git pull and npm udate.
+#   hubot update - Performs a git pull and npm install.
 #   hubot pending update - Informs if there are pending updates (hubot needs a restart)
 #
 # Author:
