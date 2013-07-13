@@ -12,7 +12,12 @@ logs
 results
 
 npm-debug.log
-node_modules
 
 audio/recordings
 audio/tts
+
+node_modules/*
+!node_modules/jsdom/
+!node_modules/jquery/
+!node_modules/contextify/
+
