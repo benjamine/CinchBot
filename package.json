@@ -33,7 +33,7 @@
     "hubot-scripts": "*"
   },
   "bundledDependencies": [
-  ],  
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=0.6"
