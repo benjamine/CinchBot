@@ -49,7 +49,8 @@ module.exports = (robot) ->
 
   client.on "connect", ->
     robot.logger.debug "Successfully connected to Redis"
-    getData()
+    if not info.auth
+      getData()
 
   # Prevent autosaves until connect has occured
   robot.logger.info "Disabling brain auto-saving"
