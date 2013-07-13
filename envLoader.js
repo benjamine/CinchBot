@@ -38,20 +38,34 @@ module.exports.loadFromRedis = function(options, callback){
 	client.on("error", function (err) {
 	    console.log("Error " + err);
 	});
-	client.hgetall('hubot:env', function(err, reply){
-		var count = 0;
-		if (!err && reply) {
-			for (var key in reply) {
-				if (reply.hasOwnProperty(key)){
-					process.env[key] = reply[key];
-					count++;
+
+	var pwd;
+	if (fs.existsSync('./redis-auth.tmp')) {
+		pwd = fs.readFileSync('./redis-auth.tmp').toString();
+	}
+	var getData = function(){
+		client.hgetall('hubot:env', function(err, reply){
+			var count = 0;
+			if (!err && reply) {
+				for (var key in reply) {
+					if (reply.hasOwnProperty(key)){
+						process.env[key] = reply[key];
+						count++;
+					}
 				}
 			}
-		}
-		console.log(count+' key(s) loaded from redis');
-		client.quit();
-		if (typeof callback === 'function') {
-			callback(err);
-		}
-	});
+			console.log(count+' key(s) loaded from redis');
+			client.quit();
+			if (typeof callback === 'function') {
+				callback(err);
+			}
+		});
+	};
+	if (pwd) {
+		client.auth(pwd, function(){
+			getData();
+		});
+	} else {
+		getData();
+	}
 }
