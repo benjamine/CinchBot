@@ -40,7 +40,7 @@ module.exports = (robot) ->
       if err
         robot.logger.err "redis auth failed"
       else
-        robot.logger.debug "redis auth succeded"
+        robot.logger.info "redis auth succeeded"
         getData()
 
 
