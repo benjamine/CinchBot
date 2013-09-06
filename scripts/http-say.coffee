@@ -1,6 +1,9 @@
 # Description:
 #   Listens for http POSTs and sends notifications. Send a POST to hubot/say indicating the room/user and message.
 #
+# Example:
+#   curl http://<hubothost>/hubot/say -X POST -d room=#ROOMID -d message=Hello%20from%20curl
+#
 # Dependencies:
 #   None
 #
