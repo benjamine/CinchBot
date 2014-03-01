@@ -16,7 +16,7 @@ module.exports.loadFromFileSync = function(filename) {
 			value = value.trim();
 				process.env[key] = value;
 				count++;
-			}	
+			}
 		});
 		console.log(count+' key(s) loaded from env.data');
 	}

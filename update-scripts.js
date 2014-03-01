@@ -32,7 +32,7 @@ walk('.', function(file, stat){
 	return stat.isDirectory() && path.basename(file).toLowerCase()==='scripts';
 }, function(error, scriptFolders){
 	if (error){
-		console.log(error);		
+		console.log(error);
 	} else {
 
 		var count = 0;
@@ -46,7 +46,7 @@ walk('.', function(file, stat){
 	    			var scriptPath = path.join('./scripts', script);
 	    			scriptFolders.forEach(function(folder){
 	    				var source = path.join(folder, path.basename(script));
-	    				if (fs.existsSync(source)){ 
+	    				if (fs.existsSync(source)){
 	    					var sourceStat = fs.statSync(source);
 			    			var scriptStat = fs.existsSync(scriptPath) && fs.statSync(scriptPath);
 	    					if (sourceStat.isFile() && (!scriptStat || sourceStat.mtime > scriptStat.mtime || process.argv.indexOf('--force') > -1)) {
