@@ -1,1 +1,1 @@
-forever start --minUptime 5000 --spinSleepTime 5000 ./node_modules/.bin/coffee ./cinchbot.coffee -a skype
+env PORT=8080 forever start --minUptime 5000 --spinSleepTime 5000 ./node_modules/coffee-script/bin/coffee cinchbot.coffee -a skype
