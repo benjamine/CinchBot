@@ -22,6 +22,7 @@ module.exports = (robot) ->
   addPersonalMeme 'dustin', 'https://secure.gravatar.com/avatar/15912c1b3395cb8a454e287a88a97346?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png'
   addPersonalMeme 'enrique', 'http://file.worldcybergames.com/file/GENIUS2004/member_pictures/2005/10/paletta.jpg'
   addPersonalMeme 'brian', 'http://i.imgur.com/QkbizLi.jpg'
+  addPersonalMeme 'loren', 'http://cdn.btrcdn.com/pics/hostpics/197cc54c-07a8-421f-87c9-00db0116de52_lorentux_2.jpg'
 
 memeGenerator = (msg, imageName, text1, text2, callback) ->
   imageUrl = imageName
