@@ -23,7 +23,8 @@ module.exports = (robot) ->
   addPersonalMeme 'enrique', 'http://file.worldcybergames.com/file/GENIUS2004/member_pictures/2005/10/paletta.jpg'
   addPersonalMeme 'brian', 'http://i.imgur.com/QkbizLi.jpg'
   addPersonalMeme 'loren', 'http://cdn.btrcdn.com/pics/hostpics/197cc54c-07a8-421f-87c9-00db0116de52_lorentux_2.jpg'
-
+  addPersonalMeme 'javier', 'https://avatars3.githubusercontent.com/u/250316'
+  
 memeGenerator = (msg, imageName, text1, text2, callback) ->
   imageUrl = imageName
 
